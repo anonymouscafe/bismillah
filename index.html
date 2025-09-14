@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bismillah's Cafe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #faf7f2;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #8b5e3c;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+    .main {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      padding: 1rem;
+    }
+    h2 {
+      background: #d7b899;
+      padding: 0.5rem;
+      margin-top: 1rem;
+    }
+    .menu-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+      padding: 0.5rem;
+    }
+    .item {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .item button {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #8b5e3c;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .cart {
+      background: #f1e6d6;
+      padding: 1rem;
+      border-radius: 8px;
+      height: fit-content;
+    }
+    #cart-items {
+      list-style: none;
+      padding: 0;
+    }
+    #cart-items li {
+      margin: 0.3rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #cart-items li button {
+      background: #c0392b;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.2rem 0.5rem;
+      cursor: pointer;
+      margin-left: 0.5rem;
+    }
+    #place-order {
+      margin-top: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      background: #5c3d2e;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    @media (max-width: 800px) {
+      .main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bismillah's Cafe</h1>
+  </header>
+
+  <div class="main">
+    <!-- LEFT SIDE: MENU -->
+    <div class="menu">
+      <h2>Beverages</h2>
+      <div class="menu-section">
+        <div class="item">
+          <h3>Choco Peanut Shake</h3>
+          <p>2 slaps</p>
+          <button onclick="addToCart('Choco Peanut Shake', 2)">Add to Cart</button>
+        </div>
+        <div class="item">
+          <h3>Choco Shake</h3>
+          <p>2 slaps</p>
+          <button onclick="addToCart('Choco Shake', 2)">Add to Cart</button>
+        </div>
+        <div class="item">
+          <h3>Peanut Shake</h3>
+          <p>2 slaps</p>
+          <button onclick="addToCart('Peanut Shake', 2)">Add to Cart</button>
+        </div>
+        <div class="item">
+          <h3>Tea</h3>
+          <p>2 slaps</p>
+          <button onclick="addToCart('Tea', 2)">Add to Cart</button>
+        </div>
+        <div class="item">
+          <h3>Simple/Rose Syrup Hot/Cold Milk</h3>
+          <p>1 slap</p>
+          <button onclick="addToCart('Simple/Rose Syrup Hot/Cold Milk', 1)">Add to Cart</button>
+        </div>
+        <div class="item">
+          <h3>Cold/Hot Coffee</h3>
+          <p>2 slaps</p>
+          <button onclick="addToCart('Cold/Hot Coffee', 2)">Add to Cart</button>
+        </div>
+      </div>
+
+      <h2>Namkeen and Chips</h2>
+      <div class="menu-section">
+        <div class="item">
+          <h3>Aloo Bhujia</h3>
+          <p>2 slaps</p>
+          <button onclick="addToCart('Aloo Bhujia', 2)">Add to Cart</button>
+        </div>
+        <div class="item">
+          <h3>Bikaneri Bhujia</h3>
+          <p>2 slaps</p>
+          <button onclick="addToCart('Bikaneri Bhujia', 2)">Add to Cart</button>
+        </div>
+        <div class="item">
+          <h3>Garlic Bhujia</h3>
+          <p>2 slaps</p>
+          <button onclick="addToCart('Garlic Bhujia', 2)">Add to Cart</button>
+        </div>
+        <div class="item">
+          <h3>Chips of Your Choice</h3>
+          <p>1 slap</p>
+          <button onclick="addToCart('Chips of Your Choice', 1)">Add to Cart</button>
+        </div>
+      </div>
+
+      <h2>Biscuits</h2>
+      <div class="menu-section">
+        <div class="item">
+          <h3>Good Day</h3>
+          <p>1 slap</p>
+          <button onclick="addToCart('Good Day Biscuit', 1)">Add to Cart</button>
+        </div>
+        <div class="item">
+          <h3>Hide and Seek</h3>
+          <p>1 slap</p>
+          <button onclick="addToCart('Hide and Seek Biscuit', 1)">Add to Cart</button>
+        </div>
+        <div class="item">
+          <h3>Bourbon</h3>
+          <p>1 slap</p>
+          <button onclick="addToCart('Bourbon Biscuit', 1)">Add to Cart</button>
+        </div>
+        <div class="item">
+          <h3>Nutri Choice</h3>
+          <p>1 slap</p>
+          <button onclick="addToCart('Nutri Choice Biscuit', 1)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: CART -->
+    <div class="cart">
+      <h2>Your Cart</h2>
+      <input type="text" id="customer-name" placeholder="Enter your name" style="padding:0.5rem; width:100%; max-width:300px;"><br><br>
+      <ul id="cart-items"></ul>
+      <h3 id="total">Total: 0 slaps</h3>
+      <button id="place-order" onclick="placeOrder()">Place Order</button>
+    </div>
+  </div>
+
+  <script>
+    let total = 0;
+    let cartList = [];
+
+    function addToCart(item, price) {
+      const cartItems = document.getElementById('cart-items');
+      const li = document.createElement('li');
+
+      const span = document.createElement('span');
+      span.textContent = `${item} - ${price} slaps`;
+
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'Remove';
+      removeBtn.onclick = function () {
+        cartItems.removeChild(li);
+        total -= price;
+        cartList = cartList.filter(c => c !== cartObj);
+        document.getElementById('total').textContent = `Total: ${total} slaps`;
+      };
+
+      li.appendChild(span);
+      li.appendChild(removeBtn);
+      cartItems.appendChild(li);
+
+      const cartObj = {item, price};
+      cartList.push(cartObj);
+      total += price;
+      document.getElementById('total').textContent = `Total: ${total} slaps`;
+    }
+
+    function placeOrder() {
+      if (total === 0) {
+        alert('Your cart is empty!');
+        return;
+      }
+
+      const name = document.getElementById('customer-name').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+
+      let message = `Hello! I am ${name} and I want to place this order:\n\n`;
+      cartList.forEach(c => {
+        message += `• ${c.item} - ${c.price} slaps\n`;
+      });
+      message += `\nTotal: ${total} slaps`;
+
+      const phone = "918544962086";
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
